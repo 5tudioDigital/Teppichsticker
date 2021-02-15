@@ -40,13 +40,11 @@ document.getElementById("NoCookiesSettings").onclick = function () {
 
 
 var AN_cookie = getCookie("AN_DS"),
-    RE_cookie = getCookie("RE_DS"),
     alreadyLoaded = "true" === window.localStorage.getItem("CB");
 
 
 function checkSettings() {
     document.getElementById("AN_Check").checked ? setCookie("AN_DS", "true", 999) : setCookie("AN_DS", "false", 999), 
-    document.getElementById("RE_Check").checked ? setCookie("RE_DS", "true", 999) : setCookie("RE_DS", "false", 999), 
     location.reload()
 }
 
@@ -65,7 +63,6 @@ function deletecookies() {
 function nocookies() {
     deletecookies(), 
     setCookie("AN_DS", "false", 999), 
-    setCookie("RE_DS", "false", 999), 
     setCookie("NOCO", "true", 999), 
     window.localStorage.setItem("CB", "true"), 
     location.reload()
@@ -74,17 +71,17 @@ function nocookies() {
 
 
 "true" == AN_cookie && (document.getElementById("AN_Check").checked = !0), 
-"true" == RE_cookie && (document.getElementById("RE_Check").checked = !0), 
+
 
     
     
 "false" == AN_cookie && (document.getElementById("AN_Check").checked = !1), 
-"false" == RE_cookie && (document.getElementById("RE_Check").checked = !1), 
+
 
 
                                                                                
     AN_cookie || (document.getElementById("AN_Check").checked = !0), 
-    RE_cookie || (document.getElementById("RE_Check").checked = !0), 
+
 
 
 alreadyLoaded ? document.getElementById("consentPopup").style.display = "none" : (document.getElementById("consentPopup").style.display = "block") 
